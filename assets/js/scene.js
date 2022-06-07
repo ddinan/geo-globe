@@ -9,7 +9,7 @@ fetch('./data/countries.geojson').then(res => res.json()).then(countries => {
         .backgroundImageUrl('./assets/img/night-sky.png')
         .lineHoverPrecision(0)
         .polygonsData(countries.features.filter(country => country.properties.ISO_A2 !== 'AQ'))
-        .polygonAltitude(0.01)
+        .polygonAltitude(0.001)
         .polygonCapColor(country => 'transparent')
         .polygonSideColor(country => 'transparent')
         .polygonStrokeColor(country => 'black')
@@ -21,7 +21,7 @@ fetch('./data/countries.geojson').then(res => res.json()).then(countries => {
           Population: <i>${country.POP_EST}</i>
         `)
         .onPolygonHover(hover => world
-            .polygonAltitude(country => country === hover ? 0.01 : 0.001)
+            .polygonAltitude(country => country === hover ? 0.02 : 0.001)
             .polygonSideColor(country => country === hover ? '#00000080' : 'transparent')
             .polygonCapColor(country => country === hover ? 'yellow' : 'transparent')
         )
@@ -30,7 +30,7 @@ fetch('./data/countries.geojson').then(res => res.json()).then(countries => {
 
     // Custom globe material
     const globeMaterial = world.globeMaterial();
-    globeMaterial.bumpScale = 10;
+    globeMaterial.bumpScale = 20;
 
     new THREE.TextureLoader().load('./assets/img/earth-water.png', texture => {
         globeMaterial.specularMap = texture;
