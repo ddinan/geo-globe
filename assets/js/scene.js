@@ -38,6 +38,11 @@ fetch('./data/countries.geojson').then(res => res.json()).then(countries => {
         globeMaterial.shininess = 15;
     });
 
+    // Make globe spin
+
+    world.controls().autoRotate = true;
+    world.controls().autoRotateSpeed = 0.35;
+
     // Render cloud sphere over globe
 
     const cloudImage = './assets/img/clouds.png';
