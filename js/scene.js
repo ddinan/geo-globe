@@ -1,7 +1,9 @@
 // Fetch all country data
 fetch('./data/countries.geojson').then(res => res.json()).then(countries => {
     // Create the 3D globe
-    const world = Globe()
+    const world = Globe({
+            animateIn: false
+        })
         .globeImageUrl('./img/earth-blue-marble.jpg')
         .bumpImageUrl('./img/earth-topology.png')
         .backgroundImageUrl('./img/night-sky.png')
@@ -34,5 +36,27 @@ fetch('./data/countries.geojson').then(res => res.json()).then(countries => {
         globeMaterial.specularMap = texture;
         globeMaterial.specular = new THREE.Color('grey');
         globeMaterial.shininess = 15;
+    });
+
+    // Render cloud sphere over globe
+
+    const cloudImage = './img/clouds.png';
+    const cloudAltitude = 0.004;
+    const cloudRotationSpeed = -0.006; // Degrees per frame
+
+    new THREE.TextureLoader().load(cloudImage, texture => {
+        const clouds = new THREE.Mesh(
+            new THREE.SphereBufferGeometry(world.getGlobeRadius() * (1 + cloudAltitude), 75, 75),
+            new THREE.MeshPhongMaterial({
+                map: texture,
+                transparent: true
+            })
+        );
+        world.scene().add(clouds);
+
+        (function rotateClouds() {
+            clouds.rotation.y += cloudRotationSpeed * Math.PI / 180;
+            requestAnimationFrame(rotateClouds);
+        })();
     });
 })
