@@ -4,9 +4,9 @@ fetch('./data/countries.geojson').then(res => res.json()).then(countries => {
     const world = Globe({
             animateIn: false
         })
-        .globeImageUrl('./img/earth-blue-marble.jpg')
-        .bumpImageUrl('./img/earth-topology.png')
-        .backgroundImageUrl('./img/night-sky.png')
+        .globeImageUrl('./assets/img/earth-blue-marble.jpg')
+        .bumpImageUrl('./assets/img/earth-topology.png')
+        .backgroundImageUrl('./assets/img/night-sky.png')
         .lineHoverPrecision(0)
         .polygonsData(countries.features.filter(country => country.properties.ISO_A2 !== 'AQ'))
         .polygonAltitude(0.01)
@@ -32,7 +32,7 @@ fetch('./data/countries.geojson').then(res => res.json()).then(countries => {
     const globeMaterial = world.globeMaterial();
     globeMaterial.bumpScale = 10;
 
-    new THREE.TextureLoader().load('./img/earth-water.png', texture => {
+    new THREE.TextureLoader().load('./assets/img/earth-water.png', texture => {
         globeMaterial.specularMap = texture;
         globeMaterial.specular = new THREE.Color('grey');
         globeMaterial.shininess = 15;
@@ -40,7 +40,7 @@ fetch('./data/countries.geojson').then(res => res.json()).then(countries => {
 
     // Render cloud sphere over globe
 
-    const cloudImage = './img/clouds.png';
+    const cloudImage = './assets/img/clouds.png';
     const cloudAltitude = 0.004;
     const cloudRotationSpeed = -0.006; // Degrees per frame
 

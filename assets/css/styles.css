@@ -1,0 +1,28 @@
+.icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 0 !important;
+}
+
+.option-btn img {
+  width: 48px;
+  height: 48px;
+}
+
+.option-btn {
+  border: 2px solid;
+}
+
+.option-btn:hover {
+  border: 2px solid;
+  transform: translate(0px, -10px);
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+body {
+  margin: 0;
+}
+

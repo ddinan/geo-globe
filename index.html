@@ -1,19 +1,125 @@
-<head>
-    <!-- Import stylesheet -->
-    <link rel="stylesheet" href="./css/style.css">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Interactive data visualizations-->
-    <script src="./js/libraries/d3.min.js"></script>
-    <!-- 3D environment setup -->
-    <script src="./js/libraries/three.min.js"></script>
-    <!-- Rendering the globe -->
-    <script src="./js/libraries/globe.gl.min.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>globe</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
-    <!-- Placeholder div for the globe -->
-    <div id="globe"></div>
-
-    <!-- Create the scene -->
-    <script src="./js/scene.js"></script>
+<body style="background-size: cover;background-repeat: no-repeat;background-image: url(&quot;assets/img/background.png&quot;);">
+    <div class="container py-4 py-xl-5">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto"><a href="#" style="text-decoration: none;color: #212529;">
+                    <div class="d-flex"><img class="rounded-circle flex-shrink-0 center" width="128" height="128" src="assets/img/distance.png" style="margin: auto;">
+                        <div>
+                            <p class="fw-bold mb-0"></p>
+                            <p class="text-muted mb-0"></p>
+                        </div>
+                    </div>
+                    <h2 style="font-size: 52px;"><strong>GEO GLOBE</strong></h2>
+                    <p class="w-lg-50"><strong>Test your geography knowledge with fun puzzles and minigames.</strong></p>
+                </a></div>
+        </div>
+        <div class="carousel slide" data-bs-ride="carousel" id="carousel-1" style="height: 600px;">
+            <div class="carousel-inner h-100">
+                <div class="carousel-item active h-100">
+                    <div class="container d-flex flex-column justify-content-center h-100">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-4 offset-md-2 offset-xxl-2"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/flag.png">
+                                <div>
+                                    <h1 class="text-uppercase fw-bold">Flags</h1><span class="badge rounded-pill bg-primary mb-2" style="background: #e64363 !important;">Best: 0</span>
+                                    <p class="my-3"><strong><em>*As Bolivia and Paraguay both have two flags, only the most common ones have been selected.</em></strong><br><br></p><a class="btn btn-primary btn-lg option-btn" role="button" href="#" style="color: #212529;font-weight: bold;background: var(--bs-cyan);margin-right: 7px;"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/snail.png"> Untimed</a><a class="btn btn-outline-primary btn-lg option-btn" role="button" href="#" style="font-weight: bold;color: #212529;background: #68ff6e;"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/stopwatch.png"> Timed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <div class="container d-flex flex-column justify-content-center h-100">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-4 offset-md-2 offset-xxl-2"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/city.png">
+                                <div>
+                                    <h1 class="text-uppercase fw-bold">Capitals</h1><span class="badge rounded-pill bg-primary mb-2" style="background: #31ea43 !important;">Best: 0</span>
+                                    <p class="my-3"><strong><em>*Since some countries have multiple capitals. You only need to name one.&nbsp;</em></strong><br><br><strong><em>*Nauru does not have an official capital and is not included in this mode.</em></strong><br><br></p><a class="btn btn-primary btn-lg option-btn" role="button" href="#" style="color: #212529;font-weight: bold;background: var(--bs-cyan);margin-right: 7px;"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/snail.png"> Untimed</a><a class="btn btn-outline-primary btn-lg option-btn" role="button" href="#" style="font-weight: bold;color: #212529;background: #68ff6e;"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/stopwatch.png"> Timed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <div class="container d-flex flex-column justify-content-center h-100">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-4 offset-md-2 offset-xxl-2"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/population.png">
+                                <div>
+                                    <h1 class="text-uppercase fw-bold">Population</h1><span class="badge rounded-pill bg-primary mb-2" style="background: #ff64f0 !important;">Best: 0</span>
+                                    <p class="my-3"><strong><em>*As Bolivia and Paraguay both have two flags, only the most common ones have been selected.</em></strong><br><br></p><a class="btn btn-primary btn-lg option-btn" role="button" href="#" style="color: #212529;font-weight: bold;background: var(--bs-cyan);margin-right: 7px;"><img class="rounded-circle flex-shrink-0 icon" width="96" height="96" src="assets/img/snail.png"> Untimed</a><a class="btn btn-outline-primary btn-lg option-btn" role="button" href="#" style="font-weight: bold;color: #212529;background: #68ff6e;"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/stopwatch.png"> Timed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <div class="container d-flex flex-column justify-content-center h-100">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-4 offset-md-2 offset-xxl-2"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/landmarks.png">
+                                <div>
+                                    <h1 class="text-uppercase fw-bold">Landmarks</h1><span class="badge rounded-pill bg-primary mb-2" style="background: #ffa51f !important;">Best: 0</span>
+                                    <p class="my-3"><strong><em>*Only the top 150 from&nbsp;</em></strong><a href="https://www.listchallenges.com/150-most-famous-landmarks-in-the-world"><strong><em>here</em></strong></a><strong><em>&nbsp;have been selected.</em></strong><br><br></p><a class="btn btn-primary btn-lg option-btn" role="button" href="#" style="color: #212529;font-weight: bold;background: var(--bs-cyan);margin-right: 7px;"><img class="rounded-circle flex-shrink-0 icon" width="96" height="96" src="assets/img/snail.png"> Untimed</a><a class="btn btn-outline-primary btn-lg option-btn" role="button" href="#" style="font-weight: bold;color: #212529;background: #68ff6e;"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/stopwatch.png"> Timed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <div class="container d-flex flex-column justify-content-center h-100">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-4 offset-md-2 offset-xxl-2"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/trivia.png">
+                                <div>
+                                    <h1 class="text-uppercase fw-bold">Trivia</h1><span class="badge rounded-pill bg-primary mb-2" style="background: #4886ff !important;">Best: 0</span>
+                                    <p class="my-3"><strong><em>See how much really know about the world.</em></strong><br><br></p><a class="btn btn-primary btn-lg option-btn" role="button" href="#" style="color: #212529;font-weight: bold;background: var(--bs-cyan);margin-right: 7px;"><img class="rounded-circle flex-shrink-0 icon" width="96" height="96" src="assets/img/snail.png"> Untimed</a><a class="btn btn-outline-primary btn-lg option-btn" role="button" href="#" style="font-weight: bold;color: #212529;background: #68ff6e;"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/stopwatch.png"> Timed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <div class="container d-flex flex-column justify-content-center h-100">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-4 offset-md-2 offset-xxl-2"><img class="rounded-circle flex-shrink-0 icon" width="128" height="128" src="assets/img/globe.png">
+                                <div>
+                                    <h1 class="text-uppercase fw-bold">Free play</h1><span class="badge rounded-pill bg-primary mb-2" style="background: #02e1ff !important;">Best: 0</span>
+                                    <p class="my-3"><strong><em>Play around with the globe on your own accord.</em></strong><br><br></p><a class="btn btn-primary btn-lg option-btn" role="button" href="#" style="color: #212529;font-weight: bold;background: var(--bs-cyan);margin-right: 7px;"><img class="rounded-circle flex-shrink-0 icon" width="96" height="96" src="assets/img/snail.png"> Untimed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="3"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="4"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="5"></li>
+            </ol>
+        </div>
+    </div>
+    <footer class="text-center bg-dark">
+        <div class="container text-white py-4 py-lg-5"><a class="link-light" href="https://www.flaticon.com" style="text-decoration: none;">Icons supplied by&nbsp;<strong><em>Freepik - Flaticon</em></strong></a>
+            <hr style="color: transparent;"><a class="link-light" href="https://derekdinan/geo-globe" style="text-decoration: none;">
+                <p class="text-muted mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-github text-light" style="font-size: 32px;">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg><strong>&nbsp; Project Source</strong></p><br>
+            </a>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
+</html>
